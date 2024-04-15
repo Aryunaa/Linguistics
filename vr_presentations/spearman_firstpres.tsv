@@ -1,6 +1,7 @@
-eye_contact	time_losing_contact	number_losing	num_preslook	num_fillerwords
--	***	***		
--0.868	-	***		
--0.766	0.865	-		*
--0.339	0.23	0.165	-	**
--0.198	0.332	0.445	0.52	-
+duration_secs	eye_contact	time_losing_contact	number_losing	num_preslook	num_fillerwords
+-					
+0.009	-	***	***	*	*
+0.105	-0.958	-	***	**	*
+-0.096	-0.811	0.789	-	***	*
+-0.03	-0.495	0.557	0.711	-	
+0.329	-0.435	0.446	0.503	0.213	-
