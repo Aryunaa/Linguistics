@@ -1,16 +1,16 @@
 X	Y	method	alternative	n	r	CI95%	p-unc	power
-duration_secs	eye_contact	spearman	two-sided	25	0.009	[-0.39  0.4 ]	0.964	0.05
-duration_secs	time_losing_contact	spearman	two-sided	25	0.105	[-0.3   0.48]	0.617	0.079
-duration_secs	number_losing	spearman	two-sided	25	-0.096	[-0.47  0.31]	0.647	0.074
-duration_secs	num_preslook	spearman	two-sided	25	-0.03	[-0.42  0.37]	0.885	0.052
-duration_secs	num_fillerwords	spearman	two-sided	25	0.329	[-0.08  0.64]	0.109	0.37
-eye_contact	time_losing_contact	spearman	two-sided	25	-0.958	[-0.98 -0.91]	0.0	1.0
-eye_contact	number_losing	spearman	two-sided	25	-0.811	[-0.91 -0.61]	0.0	1.0
-eye_contact	num_preslook	spearman	two-sided	25	-0.495	[-0.74 -0.12]	0.012	0.736
-eye_contact	num_fillerwords	spearman	two-sided	25	-0.435	[-0.71 -0.05]	0.03	0.605
-time_losing_contact	number_losing	spearman	two-sided	25	0.789	[0.57 0.9 ]	0.0	0.999
-time_losing_contact	num_preslook	spearman	two-sided	25	0.557	[0.21 0.78]	0.004	0.85
-time_losing_contact	num_fillerwords	spearman	two-sided	25	0.446	[0.06 0.72]	0.025	0.629
-number_losing	num_preslook	spearman	two-sided	25	0.711	[0.44 0.86]	0.0	0.989
-number_losing	num_fillerwords	spearman	two-sided	25	0.503	[0.13 0.75]	0.01	0.751
-num_preslook	num_fillerwords	spearman	two-sided	25	0.213	[-0.2   0.56]	0.308	0.177
+duration_secs	eye_contact	spearman	two-sided	27	-0.067	[-0.44  0.32]	0.74	0.062
+duration_secs	time_losing_contact	spearman	two-sided	27	0.163	[-0.23  0.51]	0.417	0.129
+duration_secs	number_losing	spearman	two-sided	27	0.058	[-0.33  0.43]	0.772	0.059
+duration_secs	num_preslook	spearman	two-sided	27	0.169	[-0.23  0.52]	0.401	0.135
+duration_secs	num_fillerwords	spearman	two-sided	27	0.629	[0.33 0.81]	0.0	0.957
+eye_contact	time_losing_contact	spearman	two-sided	27	-0.953	[-0.98 -0.9 ]	0.0	1.0
+eye_contact	number_losing	spearman	two-sided	27	-0.82	[-0.91 -0.64]	0.0	1.0
+eye_contact	num_preslook	spearman	two-sided	27	-0.299	[-0.61  0.09]	0.13	0.335
+eye_contact	num_fillerwords	spearman	two-sided	27	-0.337	[-0.64  0.05]	0.085	0.416
+time_losing_contact	number_losing	spearman	two-sided	27	0.794	[0.59 0.9 ]	0.0	1.0
+time_losing_contact	num_preslook	spearman	two-sided	27	0.39	[0.01 0.67]	0.044	0.536
+time_losing_contact	num_fillerwords	spearman	two-sided	27	0.337	[-0.05  0.64]	0.086	0.415
+number_losing	num_preslook	spearman	two-sided	27	0.466	[0.1  0.72]	0.014	0.71
+number_losing	num_fillerwords	spearman	two-sided	27	0.218	[-0.18  0.55]	0.275	0.196
+num_preslook	num_fillerwords	spearman	two-sided	27	0.208	[-0.19  0.54]	0.298	0.182
