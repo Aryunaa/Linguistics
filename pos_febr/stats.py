@@ -45,11 +45,17 @@ def full_bootstrap_mean_diff(df, col, text_add=''):
     p_value = np.mean(np.abs(mean_expected_diffs) >= np.abs(observed_diff))
     ci = np.percentile(mean_expected_diffs, [2.5, 97.5])
 
+    # Calculate effect size (Cohen's d)
+    s_pooled = np.sqrt(((len(group1) - 1) * np.var(group1, ddof=1) + (len(group2) - 1) * np.var(group2, ddof=1)) / 
+                       (len(group1) + len(group2) - 2))
+    cohens_d = observed_diff / s_pooled
+
 
     # Output of results
     print("Observed mean difference (standardized):", observed_diff)
     print("bootstrap p-value:", p_value)
     print("Confidence interval (95%):", ci)
+    print("Cohen's d (effect size):", cohens_d)
 
     # Plot a histogram of differences in means between groups 
     y, x, _ =plt.hist(mean_expected_diffs, bins=30, edgecolor='black')
@@ -59,7 +65,9 @@ def full_bootstrap_mean_diff(df, col, text_add=''):
     plt.title('Distribution of exp. differences in means')
     plt.xlabel('Exp. differences in means\n(expected if there is no difference between groups)')
     plt.ylabel('frequency')
-    plt.text(min(mean_expected_diffs), -0.3*y.max(), f'\n{text_add}"{col}" is compared between students and senior academics', fontsize=10)
+    plt.text(min(mean_expected_diffs), -0.4*y.max(), f'\n{text_add}"{col}" is compared between students and senior academics', fontsize=10)
     plt.tight_layout()
     plt.legend()
     plt.show()
+    
+    return ci, p_value, observed_diff, cohens_d
