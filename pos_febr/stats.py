@@ -141,8 +141,6 @@ def full_bootstrap_mean_diff(df, col, text_add='', num_it=10000):
 
 
 
-import numpy as np
-from scipy import stats
 
 def bootstrap_expected_mean_and_variance_difference(group1, group2, num_iterations=10000):
     """Получает распределения различий средних значений и дисперсий методом бутстрапа."""
@@ -249,12 +247,41 @@ def full_bootstrap_analysis(df, col, type_col="type", senior_type="senior academ
     # Эффект размерности (Cohen's D)
     cohens_d = cohen_d(group1, group2)
     
+
+    delta = np.mean(group1) - np.mean(group2)
+    s_standard_diff_deviation = np.sqrt((np.var(group1, ddof=1)*len(group1)+np.var(group2, ddof=1)*len(group2))/(len(group1)+len(group2)-2))
+
+    mdelta_lower = delta - 1.96*s_standard_diff_deviation
+    mdelta_upper = delta + 1.96*s_standard_diff_deviation
+    mdelta_ = [mdelta_lower, mdelta_upper]
+
+
+    # Output of results
+    print("Observed difference (standardized):", delta)
+    print("CI for observed difference", mdelta_)
+    print("Cohen's d (effect size):", cohens_d)
+
+    if p_mean<0.05 or p_var<0.05:
+        print('Expected mean diffs are not normal distributed')
+        St, pst = stats.mannwhitneyu(group1, group2)
+        print(f"Mann-Whitneyu p_value: {pst:.4f}")
+        normal = False
+    else:
+        print('Expected mean diffs are normal distributed')
+        St, pst = stats.ttest_ind(group1, group2, equal_var=False, permutations=num_it)
+        print(f"T-student p_value: {pst:.4f}")
+        normal = True
+
+
     # Выводы и метрики
-    print(f"Нормальность среднего: p={p_mean:.4f}")
-    print(f"Нормальность дисперсии: p={p_var:.4f}")
+    print(f"Нормальность средних разниц: p={p_mean:.4f}")
+    print(f"Хи квадрат дисперсии разниц: p={p_var:.4f}")
     print(f"P-значение для разницы средних: {p_value_mean:.4f}")
     print(f"П-значение для разницы дисперсий: {p_value_var:.4f}")
-    print(f"Доверительный интервал для средней разницы: ({ci_mean[0]:.4f}, {ci_mean[1]:.4f})")
+    print(f"Доверительный интервал для средней разницы H0: ({ci_mean[0]:.4f}, {ci_mean[1]:.4f})")
     print(f"Эффект (Cohen's D): {cohens_d:.4f}")
     
-    return mean_diffs, var_diffs, t_stats, p_value_mean, p_value_var, ci_mean, cohens_d
+
+    
+    # return mean_diffs, var_diffs, t_stats, p_value_mean, p_value_var, ci_mean, cohens_d, pst
+    return p_value_mean, normal, pst
