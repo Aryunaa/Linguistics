@@ -4,7 +4,7 @@ import numpy as np
 import seaborn as sns
 from scipy import stats
 from scipy.stats import chi2
-
+sns.set_theme(style="ticks", palette="pastel");
 
 # 1. Data standardization
 def standardize_data(df, column):
@@ -249,7 +249,10 @@ def plot_bresults(mean_expected_diffs, observed_diff, ci, col, text_add=""):
     plt.title('Distribution of exp. differences in means')
     plt.xlabel('Exp. differences in means\n(expected if there is no difference between groups)')
     plt.ylabel('frequency')
-    plt.text(min(mean_expected_diffs), -0.4*y.max(), f'\n{text_add}"{col}" is compared between students \nand senior academics', fontsize=10)
+    if col=="":
+        plt.text(min(mean_expected_diffs), -0.4*y.max(), f'\n{text_add} is compared between students \nand senior academics', fontsize=10)
+    else:
+        plt.text(min(mean_expected_diffs), -0.4*y.max(), f'\n{text_add}"{col}" is compared between students \nand senior academics', fontsize=10)    
     plt.tight_layout()
     plt.legend()
     plt.show()
