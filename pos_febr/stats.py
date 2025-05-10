@@ -87,61 +87,6 @@ def full_bootstrap_mean_diff(df, col, text_add='', num_it=10000):
     return ci, p_value, observed_diff, mdelta_, cohens_d
 
 
-# def bootstrap_test_for_variance(df_students, df_seniors, col):
-#     """
-#     Функция проводит бутстрэппинг для проверки гипотезы равенства дисперсий между двумя группами студентов и старших преподавателей.
-#     Возвращает значение p-value на основе бутстрэпа и сравнение с критическим значением хи-квадрат.
-#     """
-#     var_students = np.var(df_students[col])
-#     var_seniors = np.var(df_seniors[col])
-#     n_students = len(df_students)
-#     n_seniors = len(df_seniors)
-    
-#     # Число степеней свободы
-#     dof_students = n_students - 1
-#     dof_seniors = n_seniors - 1
-    
-#     # Общее число степеней свободы
-#     total_dof = dof_students + dof_seniors
-    
-#     # Создаем пустые списки для хранения оцененных дисперсий
-#     bootstrapped_student_vars = []
-#     bootstrapped_senior_vars = []
-    
-#     # Количество итераций бутстрапа
-#     num_bootstraps = 10000
-    
-#     # Проведение бутстрэпа
-#     for i in range(num_bootstraps):
-#         # student_sample = resample(df_students[col], replace=True, random_state=i)
-#         student_sample = df_students[col].sample(n=len(df_students), replace=True, random_state=i)
-#         senior_sample = df_seniors[col].sample(n=len(df_seniors), replace=True, random_state=i)
-#         # senior_sample = resample(df_seniors[col], replace=True, random_state=i)
-        
-#         bootstrapped_student_vars.append(np.var(student_sample))
-#         bootstrapped_senior_vars.append(np.var(senior_sample))
-    
-#     # Вычисляем наблюденную разницу дисперсий
-#     observed_diff_in_vars = abs(var_students - var_seniors)
-    
-#     # Разница в бутстрэпированных дисперсиях
-#     diff_in_vars = np.abs(np.array(bootstrapped_student_vars) - np.array(bootstrapped_senior_vars))
-    
-#     # Подсчет числа случаев, когда разница больше или равна наблюденной
-#     count_exceeding_observed = sum(diff_in_vars >= observed_diff_in_vars)
-    
-#     # P-значение (доля случаев, превышающих наблюденный уровень)
-#     p_value = count_exceeding_observed / num_bootstraps
-    
-#     # Критическое значение Хи-квадрата для уровня значимости альфа = 0.05
-#     critical_value = chi2.ppf(q=0.95, df=total_dof)
-    
-#     return p_value, critical_value
-
-
-
-
-
 def bootstrap_expected_mean_and_variance_difference(group1, group2, num_iterations=10000):
     """Получает распределения различий средних значений и дисперсий методом бутстрапа."""
     n1, n2 = len(group1), len(group2)
@@ -203,6 +148,7 @@ def bootstrap_expected_mean_and_variance_difference(group1, group2, num_iteratio
         p_var
     )
 
+
 def calculate_p_values(mean_diffs, var_diffs, group1, group2):
     """Вычисляет р-значения для среднего и дисперсии."""
     observed_mean_diff = np.mean(group1) - np.mean(group2)
@@ -216,11 +162,13 @@ def calculate_p_values(mean_diffs, var_diffs, group1, group2):
     
     return p_value_mean, p_value_var
 
+
 def calculate_confidence_intervals(diffs, alpha=0.05):
     """Рассчитывает доверительные интервалы."""
-    lower_bound = np.percentile(diffs, alpha*50)
-    upper_bound = np.percentile(diffs, 100-alpha*50)
+    lower_bound = np.percentile(diffs, alpha/2 * 100)
+    upper_bound = np.percentile(diffs, (1 - alpha/2) * 100)
     return lower_bound, upper_bound
+
 
 def cohen_d(group1, group2):
     """Рассчитывает эффект размером Cohen's D."""
@@ -228,7 +176,9 @@ def cohen_d(group1, group2):
     pooled_std = np.sqrt((np.var(group1, ddof=1)*len(group1)+np.var(group2, ddof=1)*len(group2))/(len(group1)+len(group2)-2))
     return diff / pooled_std
 
+
 def full_bootstrap_analysis(df, col, type_col="type", senior_type="senior academics", num_it=10000):
+
     """Выполняет полное бутстрап-анализ для заданного столбца."""
     # Стандартизируем данные (необходимо заранее иметь функцию standardize_data())
     df = standardize_data(df, col)
@@ -263,13 +213,15 @@ def full_bootstrap_analysis(df, col, type_col="type", senior_type="senior academ
 
     if p_mean<0.05 or p_var<0.05:
         print('Expected mean diffs are not normal distributed')
-        St, pst = stats.mannwhitneyu(group1, group2)
+        M_U, pst = stats.mannwhitneyu(group1, group2)
         print(f"Mann-Whitneyu p_value: {pst:.4f}")
+        Crit_metric = M_U
         normal = False
     else:
         print('Expected mean diffs are normal distributed')
         St, pst = stats.ttest_ind(group1, group2, equal_var=False, permutations=num_it)
         print(f"T-student p_value: {pst:.4f}")
+        Crit_metric = St
         normal = True
 
 
@@ -281,7 +233,26 @@ def full_bootstrap_analysis(df, col, type_col="type", senior_type="senior academ
     print(f"Доверительный интервал для средней разницы H0: ({ci_mean[0]:.4f}, {ci_mean[1]:.4f})")
     print(f"Эффект (Cohen's D): {cohens_d:.4f}")
     
+    # return mean_diffs, var_diffs, t_stats, p_value_mean, p_value_var, ci_mean, cohens_d, pst
+    # return p_value_mean, normal, pst
+    return mean_diffs, normal, ci_mean, delta, cohens_d, p_value_mean, Crit_metric, pst
+
+
+def plot_bresults(mean_expected_diffs, observed_diff, ci, col, text_add=""):
+     # Plot a histogram of differences in means between groups 
+    # fig = plt.figure(figsize=(4, 3))
+    fig = plt.figure()
+    y, x, _ =plt.hist(mean_expected_diffs, bins=30, edgecolor='black')
+    plt.axvline(observed_diff, color='red', linestyle='dashed', linewidth=1, label=f'Obs. difference')
+    plt.axvline(ci[0], color='grey', linestyle='dashed', linewidth=1, label=f'H0 95% Confidence Interval')
+    plt.axvline(ci[1], color='grey', linestyle='dashed', linewidth=1)
+    plt.title('Distribution of exp. differences in means')
+    plt.xlabel('Exp. differences in means\n(expected if there is no difference between groups)')
+    plt.ylabel('frequency')
+    plt.text(min(mean_expected_diffs), -0.4*y.max(), f'\n{text_add}"{col}" is compared between students \nand senior academics', fontsize=10)
+    plt.tight_layout()
+    plt.legend()
+    plt.show()
+    fig.savefig(f'figures/{text_add} {col}.png', dpi=fig.dpi)
 
     
-    # return mean_diffs, var_diffs, t_stats, p_value_mean, p_value_var, ci_mean, cohens_d, pst
-    return p_value_mean, normal, pst
