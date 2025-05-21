@@ -113,8 +113,6 @@
 111	Б_Д_20	3	после	['парашют', 'после']	п	8	13	13	1080.1	3.57			46	17	17	12	3.726976744	students	individual association strategy	S4
 112	Б_Д_20	3	пОра	['после', 'пОра']	п	8	14	14	358.2	3.77			46	17	17	12	3.726976744	students	individual association strategy	S4
 113	Б_Д_20	3	пирамида	['пОра', 'пирамида']	п	8	15	15	16.0	5.44			46	17	17	12	3.726976744	students	individual association strategy	S4
-114	Б_Д_20	4	пуск	['пирамида', 'пуск']	п	8	16	16	11.1	7.67			46	17	17	12	3.726976744	students	individual association strategy	S4
-115	Б_Д_20	4	пусковой	['пуск', 'пусковой']	п	2	17	17	4.4	1.21			46	17	17	12	3.726976744	students	derivative strategy	S2
 116	Б_Д_20	1	очки		о	nan	1	18	56.0				46	17	17	12	3.726976744	students		
 117	Б_Д_20	1	охрана	['очки', 'охрана']	о	8	2	19	90.9	1.48			46	17	17	12	3.726976744	students	individual association strategy	S4
 118	Б_Д_20	1	обошел	['охрана', 'обошел']	о	8	3	20		2.15			46	17	17	12	3.726976744	students	individual association strategy	S4
@@ -159,7 +157,6 @@
 157	Б_К_9	3	пони	['пума', 'пони']	п	3	13	13	1.5	1.85	1.0		42	16	8	18	3.074615385	students	semantic-field strategy	S3
 158	Б_К_9	3	принт	['пони', 'принт']	п	8	14	14		9.06			42	16	8	18	3.074615385	students	individual association strategy	S4
 159	Б_К_9	3	поза	['принт', 'поза']	п	8	15	15	29.8	1.13			42	16	8	18	3.074615385	students	individual association strategy	S4
-160	Б_К_9	4	пиджак	['поза', 'пиджак']	п	8	16	16	38.1	13.14	1.0	1.0	42	16	8	18	3.074615385	students	individual association strategy	S4
 161	Б_К_9	1	очки		о	nan	1	17	56.0				42	16	8	18	3.074615385	students		
 162	Б_К_9	1	облако	['очки', 'облако']	о	8	2	18	43.0	0.2			42	16	8	18	3.074615385	students	individual association strategy	S4
 163	Б_К_9	1	огонь	['облако', 'огонь']	о	8	3	19	139.8	0.2			42	16	8	18	3.074615385	students	individual association strategy	S4
@@ -241,7 +238,6 @@
 239	Д_Л_14	3	право	['память', 'право']	п	8	16	16	461.4	4.31			53	19	16	18	3.2036	students	individual association strategy	S4
 240	Д_Л_14	3	природа	['право', 'природа']	п	8	17	17	169.9	2.84			53	19	16	18	3.2036	students	individual association strategy	S4
 241	Д_Л_14	3	поросенок	['природа', 'поросенок']	п	8	18	18	10.5	5.41			53	19	16	18	3.2036	students	individual association strategy	S4
-242	Д_Л_14	4	перерыв	['поросенок', 'перерыв']	п	8	19	19	32.1	6.24			53	19	16	18	3.2036	students	individual association strategy	S4
 243	Д_Л_14	1	облако		о	nan	1	20	43.0				53	19	16	18	3.2036	students		
 244	Д_Л_14	1	отпуск	['облако', 'отпуск']	о	8	2	21	44.8	0.91			53	19	16	18	3.2036	students	individual association strategy	S4
 245	Д_Л_14	1	опус	['отпуск', 'опус']	о	1	3	22	4.2	1.15			53	19	16	18	3.2036	students	phonetic strategy	S1
@@ -272,10 +268,6 @@
 270	Д_Л_14	3	сборка	['собирать', 'сборка']	с	2	12	47	10.4	1.13			53	19	16	18	3.2036	students	derivative strategy	S2
 271	Д_Л_14	3	сговор	['сборка', 'сговор']	с	2	13	48	6.4	9.47	1.0		53	19	16	18	3.2036	students	derivative strategy	S2
 272	Д_Л_14	3	сдача	['сговор', 'сдача']	с	2	14	49	20.0	8.72			53	19	16	18	3.2036	students	derivative strategy	S2
-273	Д_Л_14	4	седина	['сдача', 'седина']	с	8	15	50	6.9	5.2			53	19	16	18	3.2036	students	individual association strategy	S4
-274	Д_Л_14	4	сражение	['седина', 'сражение']	с	8	16	51	17.4	6.3			53	19	16	18	3.2036	students	individual association strategy	S4
-275	Д_Л_14	4	собрание	['сражение', 'собрание']	с	8	17	52	109.9	2.33			53	19	16	18	3.2036	students	individual association strategy	S4
-276	Д_Л_14	4	спор	['собрание', 'спор']	с	8	18	53	79.2	1.66			53	19	16	18	3.2036	students	individual association strategy	S4
 277	Е_Е_5	1	папа		п	nan	1	1	143.4				38	15	8	15	3.886571429	students		
 278	Е_Е_5	1	парус	['папа', 'парус']	п	8	2	2	15.2	1.84			38	15	8	15	3.886571429	students	individual association strategy	S4
 279	Е_Е_5	1	портрет	['парус', 'портрет']	п	1	3	3	73.6	1.76			38	15	8	15	3.886571429	students	phonetic strategy	S1
@@ -313,7 +305,6 @@
 311	Е_Е_5	3	сила	['сутки', 'сила']	с	8	12	35	645.8	11.87	1.0		38	15	8	15	3.886571429	students	individual association strategy	S4
 312	Е_Е_5	3	слово	['сила', 'слово']	с	8	13	36	967.9	1.89			38	15	8	15	3.886571429	students	individual association strategy	S4
 313	Е_Е_5	3	собака	['слово', 'собака']	с	8	14	37	132.2	3.77			38	15	8	15	3.886571429	students	individual association strategy	S4
-314	Е_Е_5	4	слышать	['собака', 'слышать']	с	33	15	38	256.1	5.27			38	15	8	15	3.886571429	students	semantic-field strategy	S3
 315	К_А_15	1	премьера		п	nan	1	1	30.8				59	21	17	21	2.180892857	students		
 316	К_А_15	1	предмет	['премьера', 'предмет']	п	8	2	2	154.4	0.3			59	21	17	21	2.180892857	students	individual association strategy	S4
 317	К_А_15	1	предположить	['предмет', 'предположить']	п	2	3	3	201.2	0.88	1.0		59	21	17	21	2.180892857	students	derivative strategy	S2
@@ -397,7 +388,6 @@
 395	К_М_17	3	орать	['одежда', 'орать']	о	8	9	22	40.6	12.23	1.0		38	13	12	13	4.483428571	students	individual association strategy	S4
 396	К_М_17	3	оберегать	['орать', 'оберегать']	о	8	10	23	9.0	5.72	1.0		38	13	12	13	4.483428571	students	individual association strategy	S4
 397	К_М_17	3	опосредовать	['оберегать', 'опосредовать']	о	2	11	24	2.7	3.75			38	13	12	13	4.483428571	students	derivative strategy	S2
-398	К_М_17	4	обрубить	['опосредовать', 'обрубить']	о	2	12	25	2.0	5.14			38	13	12	13	4.483428571	students	derivative strategy	S2
 399	К_М_17	1	сапожник		с	nan	1	26	4.8				38	13	12	13	4.483428571	students		
 400	К_М_17	1	сапоги	['сапожник', 'сапоги']	с	2	2	27	62.0	4.47	1.0		38	13	12	13	4.483428571	students	derivative strategy	S2
 401	К_М_17	1	супруг	['сапоги', 'супруг', '']	с	8	3	28	31.1	4.74	1.0		38	13	12	13	4.483428571	students	individual association strategy	S4
@@ -663,8 +653,6 @@
 661	Н_З_27	3	полезность	['поступок', 'полезность']	п	8	14	14	4.6	1.59			41	18	7	16	3.626578947	students	individual association strategy	S4
 662	Н_З_27	3	повтор	['полезность', 'повтор']	п	8	15	15	3.7	11.6			41	18	7	16	3.626578947	students	individual association strategy	S4
 663	Н_З_27	3	потолок	['повтор', 'потолок']	п	8	16	16	57.9	5.28	1.0		41	18	7	16	3.626578947	students	individual association strategy	S4
-664	Н_З_27	4	плетение	['потолок', 'плетение']	п	8	17	17	1.9	2.43			41	18	7	16	3.626578947	students	individual association strategy	S4
-665	Н_З_27	4	прощание	['плетение', 'прощание']	п	8	18	18	18.6	5.72	1.0		41	18	7	16	3.626578947	students	individual association strategy	S4
 666	Н_З_27	1	омлет		о	nan	1	19	2.0				41	18	7	16	3.626578947	students		
 667	Н_З_27	1	орфография	['омлет', 'орфография']	о	8	2	20	2.4	4.04	1.0		41	18	7	16	3.626578947	students	individual association strategy	S4
 668	Н_З_27	1	ориентир	['орфография', 'ориентир']	о	8	3	21	10.9	0.86	1.0		41	18	7	16	3.626578947	students	individual association strategy	S4
@@ -975,9 +963,6 @@
 973	С_К_6	3	построить	['предложение', 'построить']	п	8	18	18	114.9	0.77			54	23	10	21	2.899411765	students	individual association strategy	S4
 974	С_К_6	3	подлежащее	['построить', 'подлежащее']	п	8	19	19	1.9	1.69	1.0		54	23	10	21	2.899411765	students	individual association strategy	S4
 975	С_К_6	3	полено	['подлежащее', 'полено']	п	8	20	20	5.4	5.02			54	23	10	21	2.899411765	students	individual association strategy	S4
-976	С_К_6	4	пушка	['полено', 'пушка']	п	8	21	21	24.6	11.79	1.0		54	23	10	21	2.899411765	students	individual association strategy	S4
-977	С_К_6	4	пила	['пушка', 'пила']	п	8	22	22	9.2	0.1			54	23	10	21	2.899411765	students	individual association strategy	S4
-978	С_К_6	4	пиво	['пила', 'пиво']	п	8	23	23	60.3	11.4	1.0		54	23	10	21	2.899411765	students	individual association strategy	S4
 979	С_К_6	1	овал		о	nan	1	24	4.4				54	23	10	21	2.899411765	students		
 980	С_К_6	1	оранжевый	['овал', 'оранжевый']	о	8	2	25	15.6	0.1			54	23	10	21	2.899411765	students	individual association strategy	S4
 981	С_К_6	1	окрамлять	['оранжевый', 'окрамлять']	о	8	3	26		2.23	1.0		54	23	10	21	2.899411765	students	individual association strategy	S4
@@ -1006,9 +991,6 @@
 1004	С_К_6	3	страница	['ссора', 'страница']	с	8	16	49	95.1	9.61	1.0		54	23	10	21	2.899411765	students	individual association strategy	S4
 1005	С_К_6	3	стычка	['страница', 'стычка']	с	66	17	50	3.8	4.94	1.0		54	23	10	21	2.899411765	students	semantic-field strategy	S3
 1006	С_К_6	3	сполуслова	['стычка', 'сполуслова']	с	8	18	51		2.98	1.0		54	23	10	21	2.899411765	students	individual association strategy	S4
-1007	С_К_6	4	существо	['сполуслова', 'существо']	с	8	19	52	96.6	4.27	1.0		54	23	10	21	2.899411765	students	individual association strategy	S4
-1008	С_К_6	4	секция	['существо', 'секция']	с	8	20	53	16.9	3.31	1.0		54	23	10	21	2.899411765	students	individual association strategy	S4
-1009	С_К_6	4	суфражистка	['секция', 'суфражистка']	с	8	21	54		5.09	1.0		54	23	10	21	2.899411765	students	individual association strategy	S4
 1010	С_Н_1	1	паркур		п	nan	1	1			1.0		56	24	9	23	1.892264151	students		
 1011	С_Н_1	1	парник	['паркур', 'парник']	п	1	2	2	1.0	0.1			56	24	9	23	1.892264151	students	phonetic strategy	S1
 1012	С_Н_1	1	петух	['парник', 'петух']	п	8	3	3	16.0	1.28	1.0		56	24	9	23	1.892264151	students	individual association strategy	S4
@@ -1129,8 +1111,6 @@
 1127	Х_М_3	3	обучать	['объект', 'обучать']	о	2	7	24	13.6	24.6	1.0		40	17	11	12	3.553783784	students	derivative strategy	S2
 1128	Х_М_3	3	обстановка	['обучать', 'обстановка']	о	2	8	25	76.2	10.8	1.0		40	17	11	12	3.553783784	students	derivative strategy	S2
 1129	Х_М_3	3	обставить	['обстановка', 'обставить']	о	2	9	26	6.5	1.3			40	17	11	12	3.553783784	students	derivative strategy	S2
-1130	Х_М_3	4	объективизировать	['обставить', 'объективизировать']	о	2	10	27		5.81	1.0		40	17	11	12	3.553783784	students	derivative strategy	S2
-1131	Х_М_3	4	антология	['объективизировать', 'антология']	о	8	11	28	2.7	3.63			40	17	11	12	3.553783784	students	individual association strategy	S4
 1132	Х_М_3	1	солнце		с	nan	1	29	165.2		1.0		40	17	11	12	3.553783784	students		
 1133	Х_М_3	1	сиять	['солнце', 'сиять']	с	3	2	30	35.5	0.69			40	17	11	12	3.553783784	students	semantic-field strategy	S3
 1134	Х_М_3	1	создавать	['сиять', 'создавать']	с	8	3	31	114.1	0.8			40	17	11	12	3.553783784	students	individual association strategy	S4
