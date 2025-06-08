@@ -1,10 +1,10 @@
 Hypothesis;Normal distribution;Statistical test;H0 rejected;Stat p value corrected
-Tertile 1 between students and academics;False;Mann–Whitney U test;False;0.8324
-Tertile 2 between students and academics;False;Mann–Whitney U test;False;0.5982
-Tertile 3 between students and academics;False;Mann–Whitney U test;True;6.476771575032344e-05
-Students (Tertile 1 vs Tertile 2);False;Wilcoxon signed-rank test;True;1.1964670777039278e-05
-Students (Tertile 2 vs Tertile 3);False;Wilcoxon signed-rank test;True;0.0024
-Students (Tertile 1 vs Tertile 3);False;Wilcoxon signed-rank test;True;4.470348358154297e-08
-Senior academics (Tertile 1 vs Tertile 2);False;Wilcoxon signed-rank test;True;0.0012
-Senior academics (Tertile 2 vs Tertile 3);False;Wilcoxon signed-rank test;False;0.2418
-Senior academics (Tertile 1 vs Tertile 3);False;Wilcoxon signed-rank test;True;0.0063
+T1 between students and academics;False;Mann–Whitney U test;False;0.832
+T2 between students and academics;False;Mann–Whitney U test;False;0.598
+T3 between students and academics;False;Mann–Whitney U test;True;6.476771575032344e-05
+Students (T1 vs T2);False;Wilcoxon signed-rank test;True;1.1964670777039278e-05
+Students (T2 vs T3);False;Wilcoxon signed-rank test;True;0.0024
+Students (T1 vs T3);False;Wilcoxon signed-rank test;True;4.470348358154297e-08
+Senior academics (T1 vs T2);False;Wilcoxon signed-rank test;True;0.0012
+Senior academics (T2 vs T3);False;Wilcoxon signed-rank test;False;0.242
+Senior academics (T1 vs T3);False;Wilcoxon signed-rank test;True;0.0063
