@@ -14,8 +14,8 @@ def standardize_data(df, column):
     return df
 
 
-# 2. bootstrap method
-def bootstrap_expected_mean_difference(group1, group2, num_iterations=10000):
+# 2. permutation method
+def permutation_expected_mean_difference(group1, group2, num_iterations=10000):
     mean_diffs = []
     n1 = len(group1)
     n2 = len(group2)
@@ -33,14 +33,16 @@ def bootstrap_expected_mean_difference(group1, group2, num_iterations=10000):
     return np.array(mean_diffs), shap, p
 
 
-def full_bootstrap_mean_diff(df, col, text_add='', num_it=10000):
-    # Selecting standardized data
-    df = standardize_data(df, col)
-    group1 = df[df['type'] != 'senior academics'][col + '_standardized'].values
-    group2 = df[df['type'] == 'senior academics'][col + '_standardized'].values
+def full_permutation_mean_diff(df, col, text_add='', num_it=10000):
+    ## Selecting standardized data
+    # df = standardize_data(df, col)
+    # group1 = df[df['type'] != 'senior academics'][col + '_standardized'].values
+    # group2 = df[df['type'] == 'senior academics'][col + '_standardized'].values
+    group1 = df[df['type'] != 'senior academics'][col].values
+    group2 = df[df['type'] == 'senior academics'][col].values
 
 
-    mean_expected_diffs, shap, pshap = bootstrap_expected_mean_difference(group1, group2, num_iterations=num_it)
+    mean_expected_diffs, shap, pshap = permutation_expected_mean_difference(group1, group2, num_iterations=num_it)
 
     # Calculate p-value and confidence interval
     observed_diff = np.mean(group1) - np.mean(group2)
@@ -60,11 +62,11 @@ def full_bootstrap_mean_diff(df, col, text_add='', num_it=10000):
 
 
     # Output of results
-    print("Observed difference (standardized):", observed_diff)
+    print("Observed difference", observed_diff)
     print("CI for observed difference", mdelta_)
     print("Cohen's d (effect size):", cohens_d)
 
-    print("bootstrap p-value:", p_value)
+    print("permutation p-value:", p_value)
     print("H0 Confidence interval (95%):", ci)
     if pshap<0.05:
         print('Expected mean diffs are not normal disrtibuted')
@@ -87,8 +89,8 @@ def full_bootstrap_mean_diff(df, col, text_add='', num_it=10000):
     return ci, p_value, observed_diff, mdelta_, cohens_d
 
 
-def bootstrap_expected_mean_and_variance_difference(group1, group2, num_iterations=10000):
-    """Получает распределения различий средних значений и дисперсий методом бутстрапа."""
+def permutation_expected_mean_and_variance_difference(group1, group2, num_iterations=10000):
+    """Получает распределения различий средних значений и дисперсий методом permutation."""
     n1, n2 = len(group1), len(group2)
     general = np.concatenate([group1, group2])
     
@@ -97,9 +99,9 @@ def bootstrap_expected_mean_and_variance_difference(group1, group2, num_iteratio
     t_stats = []
     
     for _ in range(num_iterations):
-        # Формируем новые выборки с повторениями
-        sample1 = np.random.choice(general, size=n1, replace=True)
-        sample2 = np.random.choice(general, size=n2, replace=True)
+        # Формируем новые выборки без повторений
+        sample1 = np.random.choice(general, size=n1, replace=False)
+        sample2 = np.random.choice(general, size=n2, replace=False)
         
         # Вычисляем разницу средних
         mean_diff = np.mean(sample1) - np.mean(sample2)
@@ -177,16 +179,18 @@ def cohen_d(group1, group2):
     return diff / pooled_std
 
 
-def full_bootstrap_analysis(df, col, type_col="type", senior_type="senior academics", num_it=10000):
+def full_permutation_analysis(df, col, type_col="type", senior_type="senior academics", num_it=10000):
 
-    """Выполняет полное бутстрап-анализ для заданного столбца."""
+    """Выполняет полное permutation-анализ для заданного столбца."""
     # Стандартизируем данные (необходимо заранее иметь функцию standardize_data())
-    df = standardize_data(df, col)
-    group1 = df[df[type_col] != senior_type][col + "_standardized"].values
-    group2 = df[df[type_col] == senior_type][col + "_standardized"].values
+    # df = standardize_data(df, col)
+    # group1 = df[df[type_col] != senior_type][col + "_standardized"].values
+    # group2 = df[df[type_col] == senior_type][col + "_standardized"].values
+    group1 = df[df[type_col] != senior_type][col].values
+    group2 = df[df[type_col] == senior_type][col].values
     
-    # Получаем распределение разниц методом бутстрапа
-    mean_diffs, var_diffs, t_stats, p_mean, p_var = bootstrap_expected_mean_and_variance_difference(group1, group2, num_it)
+    # Получаем распределение разниц методом permutationа
+    mean_diffs, var_diffs, t_stats, p_mean, p_var = permutation_expected_mean_and_variance_difference(group1, group2, num_it)
     
     # Рассчитываем p-значения
     p_value_mean, p_value_var = calculate_p_values(mean_diffs, var_diffs, group1, group2)
@@ -214,24 +218,24 @@ def full_bootstrap_analysis(df, col, type_col="type", senior_type="senior academ
     if p_mean<0.05 or p_var<0.05:
         print('Expected mean diffs are not normal distributed')
         M_U, pst = stats.mannwhitneyu(group1, group2)
-        print(f"Mann-Whitneyu p_value: {pst:.4f}")
+        print(f"Mann-Whitneyu p_value: {pst:.4g}")
         Crit_metric = M_U
         normal = False
     else:
         print('Expected mean diffs are normal distributed')
         St, pst = stats.ttest_ind(group1, group2, equal_var=False, permutations=num_it)
-        print(f"T-student p_value: {pst:.4f}")
+        print(f"T-student p_value: {pst:.4g}")
         Crit_metric = St
         normal = True
 
 
     # Выводы и метрики
-    print(f"Нормальность средних разниц: p={p_mean:.4f}")
-    print(f"Хи квадрат дисперсии разниц: p={p_var:.4f}")
-    print(f"P-значение для разницы средних: {p_value_mean:.4f}")
-    print(f"П-значение для разницы дисперсий: {p_value_var:.4f}")
-    print(f"Доверительный интервал для средней разницы H0: ({ci_mean[0]:.4f}, {ci_mean[1]:.4f})")
-    print(f"Эффект (Cohen's D): {cohens_d:.4f}")
+    print(f"Нормальность средних разниц: p={p_mean:.4g}")
+    print(f"Хи квадрат дисперсии разниц: p={p_var:.4g}")
+    print(f"P-значение для разницы средних: {p_value_mean:.4g}")
+    print(f"П-значение для разницы дисперсий: {p_value_var:.4g}")
+    print(f"Доверительный интервал для средней разницы H0: ({ci_mean[0]:.4g}, {ci_mean[1]:.4g})")
+    print(f"Эффект (Cohen's D): {cohens_d:.4g}")
     
     # return mean_diffs, var_diffs, t_stats, p_value_mean, p_value_var, ci_mean, cohens_d, pst
     # return p_value_mean, normal, pst
@@ -258,4 +262,41 @@ def plot_bresults(mean_expected_diffs, observed_diff, ci, col, text_add=""):
     plt.show()
     fig.savefig(f'figures/{text_add} {col}.png', dpi=fig.dpi)
 
+
+def get_descriptive_statistics(df, col, varname, type_col="type", senior_type="senior academics", normal=True):
+    group1 = df[df[type_col] != senior_type][col].values
+    group2 = df[df[type_col] == senior_type][col].values
+
+    mean1 =  np.nanmean(group1)
+    mean2 = np.nanmean(group2)
+
+    std1 = np.nanstd(group1, ddof=1)
+    std2 = np.nanstd(group2, ddof=1)
+
+    median1 = np.nanmedian(group1)
+    median2 = np.nanmedian(group2)
+
+    q11, q13 = tuple(np.nanquantile(a=group1, q=[0.25, 0.75]))
+    q21, q23 = tuple(np.nanquantile(a=group2, q=[0.25, 0.75]))
     
+    desc_stats = pd.DataFrame(columns=['Variable', 'type/group', 'Expected mean diffs are normal distributed'
+                          , 'mean'
+                          , 'std'
+                          , 'median'
+                          , 'Q1'
+                          , 'Q3'
+                          ])
+    
+    nonsentype = df[df[type_col] != senior_type][type_col].unique()[0]
+    desc_stats.loc[len(desc_stats)] = [varname, nonsentype, normal
+                                       , mean1
+                                       , std1
+                                       , median1, q11, q13
+                                       ]
+    desc_stats.loc[len(desc_stats)] = [varname, senior_type, normal
+                                       , mean2
+                                       , std2
+                                       , median2, q21, q23
+                                       ]
+
+    return desc_stats
