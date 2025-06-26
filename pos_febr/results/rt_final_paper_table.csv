@@ -1,0 +1,2 @@
+Variable;Normal sampling distribution;H0 CI;Delta observed;Cohens delta;Permutation test p value;Permutation test p value corrected;Stat metric value;Stat p value;Stat p value corrected
+Reaction time;True;[-0.01, 0.01];-0.06;-0.39;0.0;0.0;-8.11;0.0001;0.0001
