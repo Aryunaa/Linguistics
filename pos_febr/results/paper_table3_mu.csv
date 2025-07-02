@@ -1,0 +1,13 @@
+Strategy;T;H0 rejected;Pval adj.;Statistical test
+S1;T1;False;0.0526;Mann–Whitney U test
+S1;T2;False;0.493;Mann–Whitney U test
+S1;T3;False;0.479;Mann–Whitney U test
+S2;T1;False;0.247;Mann–Whitney U test
+S2;T2;False;0.886;Mann–Whitney U test
+S2;T3;False;0.886;Mann–Whitney U test
+S3;T1;False;0.47;Mann–Whitney U test
+S3;T2;True;0.0045;Mann–Whitney U test
+S3;T3;True;0.0016;Mann–Whitney U test
+S4;T1;True;0.0042;Mann–Whitney U test
+S4;T2;False;0.168;Mann–Whitney U test
+S4;T3;False;0.0771;Mann–Whitney U test

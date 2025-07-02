@@ -1,17 +1,16 @@
 Variable;Normal sampling distribution;H0 CI;Delta observed;Cohens delta;Permutation test p value;Permutation test p value corrected;Stat metric value;Stat p value;Stat p value corrected;Statistical test
-Fraction of S1;True;[-3.0, 3.01];-5.71;-0.76;0.0;0.0;-2.75;0.007299;0.0097;Two-Sample two-tailed t-Test
-Fraction of S2;True;[-3.07, 3.1];1.21;0.15;0.445;0.445;0.53;0.6172;0.617;Two-Sample two-tailed t-Test
-Fraction of S3;True;[-3.38, 3.29];-7.24;-0.88;0.0;0.0;-3.15;0.0031;0.0062;Two-Sample two-tailed t-Test
-Fraction of S4;True;[-5.22, 5.04];11.74;0.97;0.0;0.0;3.52;0.0011;0.0044;Two-Sample two-tailed t-Test
-Pause duration of S4;True;[-5.22, 5.04];11.74;0.97;0.0;0.0;3.52;0.0011;0.0;Two-Sample two-tailed t-Test
-Pause duration of S1;False;[-0.59, 0.62];-0.86;-0.26;0.0045;0.009;5766.5;0.0111;0.0321;Mann–Whitney U test
-Pause duration of S2;False;[-0.55, 0.54];1.01;0.38;0.0;0.0;5101.0;0.01605;0.0321;Mann–Whitney U test
-Pause duration of S3;True;[-0.29, 0.29];-0.09;-0.04;0.5646;0.565;-0.42;0.6834;0.683;Two-Sample two-tailed t-Test
-Pause duration of S4;True;[-0.22, 0.22];0.13;0.04;0.2724;0.363;0.8;0.4179;0.557;Two-Sample two-tailed t-Test
-Word frequency of S1;True;[-13.95, 14.61];4.48;0.06;0.538;0.538;0.45;0.651;0.651;Two-Sample two-tailed t-Test
-Word frequency of S2;True;[-12.07, 12.08];17.18;0.29;0.0051;0.0102;1.99;0.0451;0.0902;Two-Sample two-tailed t-Test
-Word frequency of S3;True;[-10.57, 10.56];11.98;0.15;0.0264;0.0352;1.59;0.108;0.144;Two-Sample two-tailed t-Test
-Word frequency of S4;True;[-5.28, 5.31];9.82;0.14;0.0001;0.0004;2.65;0.0086;0.0344;Two-Sample two-tailed t-Test
-Mean reaction time;True;[-0.06, 0.06];-0.08;-0.5;0.0154;0.0154;-1.75;0.0879;0.0879;Two-Sample two-tailed t-Test
-Mean reaction time (one-sided alternative);True;[-0.06, 0.06];-0.08;-0.5;0.0154;0.0154;1.74;0.046;0.046;Two-Sample one-tailed t-Test
-Reaction time;True;[-0.02, 0.02];-0.07;-0.27;0.0;0.0;-5.76;0.0001;0.0001;Two-Sample two-tailed t-Test
+Fraction of S1;True;[-3.05, 2.9];-5.71;-0.76;0.0;0.0;-2.75;0.008299;0.0111;Two-Sample two-tailed t-Test
+Fraction of S2;False;[-2.97, 3.04];1.21;0.15;0.45;0.45;452.0;0.03533;0.0353;Mann–Whitney U test
+Fraction of S3;True;[-3.38, 3.44];-7.24;-0.88;0.0;0.0;-3.15;0.0024;0.0048;Two-Sample two-tailed t-Test
+Fraction of S4;True;[-5.14, 5.1];11.74;0.97;0.0;0.0;3.52;0.0018;0.0048;Two-Sample two-tailed t-Test
+Pause duration of S1;False;[-0.59, 0.63];-0.86;-0.26;0.004;0.008;5766.5;0.0111;0.0222;Mann–Whitney U test
+Pause duration of S2;True;[-0.54, 0.55];1.01;0.38;0.0002;0.0008;2.61;0.006799;0.0222;Two-Sample two-tailed t-Test
+Pause duration of S3;False;[-0.28, 0.3];-0.09;-0.04;0.5629;0.563;25821.5;0.3436;0.424;Mann–Whitney U test
+Pause duration of S4;True;[-0.23, 0.22];0.13;0.04;0.2644;0.352;0.8;0.4236;0.424;Two-Sample two-tailed t-Test
+Word frequency of S1;True;[-14.2, 14.51];4.48;0.06;0.541;0.541;0.45;0.672;0.671;Two-Sample two-tailed t-Test
+Word frequency of S2;True;[-12.15, 12.17];17.18;0.29;0.0066;0.0132;1.99;0.0448;0.0896;Two-Sample two-tailed t-Test
+Word frequency of S3;True;[-10.57, 10.47];11.98;0.15;0.0263;0.0351;1.59;0.111;0.148;Two-Sample two-tailed t-Test
+Word frequency of S4;True;[-5.21, 5.22];9.82;0.14;0.0004;0.0016;2.65;0.0071;0.0284;Two-Sample two-tailed t-Test
+Mean reaction time;True;[-0.06, 0.06];-0.08;-0.5;0.0143;0.0143;-1.75;0.0855;0.0855;Two-Sample two-tailed t-Test
+Mean reaction time (one-sided alternative);True;[-0.06, 0.06];-0.08;-0.5;0.0143;0.0143;1.74;0.039;0.039;Two-Sample one-tailed t-Test
+Reaction time;True;[-0.01, 0.01];-0.06;-0.39;0.0;0.0;-8.11;0.0001;0.0001;Two-Sample two-tailed t-Test
