@@ -1,13 +1,13 @@
-Strategy;T;H0 rejected;Pval adj.;Statistical test
-S1;T1;False;0.0526;Mann–Whitney U test
-S1;T2;False;0.493;Mann–Whitney U test
-S1;T3;False;0.479;Mann–Whitney U test
-S2;T1;False;0.247;Mann–Whitney U test
-S2;T2;False;0.886;Mann–Whitney U test
-S2;T3;False;0.886;Mann–Whitney U test
-S3;T1;False;0.47;Mann–Whitney U test
-S3;T2;True;0.0045;Mann–Whitney U test
-S3;T3;True;0.0016;Mann–Whitney U test
-S4;T1;True;0.0042;Mann–Whitney U test
-S4;T2;False;0.168;Mann–Whitney U test
-S4;T3;False;0.0771;Mann–Whitney U test
+Strategy;T;Statistical test;Pval adj.;Statistic;H0 rejected
+S1;T1;Mann–Whitney U test;0.0526;299.5;False
+S1;T2;Mann–Whitney U test;0.493;173.0;False
+S1;T3;Mann–Whitney U test;0.479;92.5;False
+S2;T1;Mann–Whitney U test;0.247;107.5;False
+S2;T2;Mann–Whitney U test;0.886;83.0;False
+S2;T3;Mann–Whitney U test;0.886;76.5;False
+S3;T1;Mann–Whitney U test;0.47;377.0;False
+S3;T2;Mann–Whitney U test;0.0045;392.5;True
+S3;T3;Mann–Whitney U test;0.0016;292.0;True
+S4;T1;Mann–Whitney U test;0.0042;164.0;True
+S4;T2;Mann–Whitney U test;0.168;251.0;False
+S4;T3;Mann–Whitney U test;0.0771;410.0;False
